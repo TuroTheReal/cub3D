@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:26:37 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/14 17:38:27 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:26:47 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	check_order(char **tab)
 	i = 0;
 	count = 6;
 	in = 0;
-
 	while (tab[i])
 	{
 		if (!ft_strncmp(tab[i], "0", 1) || !ft_strncmp(tab[i], "1", 1)
@@ -36,7 +35,6 @@ int	check_order(char **tab)
 	if (count)
 		return (1);
 	return (0);
-
 }
 
 static int	check_six(char **tab)
@@ -100,7 +98,7 @@ int	check_input(int ac, char **av)
 	if (ft_strncmp(av[1] + (i - 4), ".cub", 5) != 0
 		&& ft_strlen(av[1]) > 4)
 		return (printf("Second argument must finish with : \".cub\"!\n"), 1);
-	if (is_openable(av[1]))
+	if (is_openable(av[1], 0))
 		return (printf("File cannot be opened!\n"), 1);
 	else
 		return (printf("INFO : File usable\n"), 0); //debug

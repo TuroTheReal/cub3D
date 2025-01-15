@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:33:29 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/14 17:16:47 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:47:46 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,12 @@ void	init_all(t_cub *cub, char *str)
 {
 	char	**to_do;
 
-	ft_bzero(cub, sizeof(t_cub));
+	// cub->nord.ptr = NULL;
+	// cub->sud.ptr = NULL;
+	// cub->est.ptr = NULL;
+	// cub->ouest.ptr = NULL;
+	// cub->frame.ptr = NULL;
+	// cub->minimap.ptr = NULL;
 	// cub->window = NULL;
 	// cub->pixel = 0;
 	// cub->player.mouse = 0;
@@ -56,12 +61,16 @@ void	init_all(t_cub *cub, char *str)
 	// cub->d = 0;
 	// cub->left = 0;
 	// cub->right = 0;
+	ft_bzero(cub, sizeof(t_cub));
 	to_do = extract_files(str);
 	if (check_all(to_do))
 		return (free_double(to_do));
 	if (init_graphics(cub, to_do))
 		return (free_double(to_do));
-	// init_map(cub, to_do);
+	if (init_map(cub, to_do))
+		return (free_double(to_do));
+	if (is_playable(cub, to_do))
+		return (free_double(to_do));
 	// printf("INFO : .cub = \n"); //debug
 	// print_double(to_do);  //debug
 	printf("INFO : Path NO = %s\n", cub->nord.path); //debug
@@ -70,7 +79,11 @@ void	init_all(t_cub *cub, char *str)
 	printf("INFO : Path WE = %s\n", cub->ouest.path); //debug
 	printf("INFO : C color = %d, %d ,%d\n", cub->ceiling.r, cub->ceiling.g, cub->ceiling.b); //debug
 	printf("INFO : F color = %d, %d ,%d\n", cub->floor.r, cub->floor.g, cub->floor.b); //debug
+	printf("INFO : player orientation is %c\n", cub->orientation); // debug
+	printf("INFO : CUB MAP = \n");
+	print_double(cub->map);
 	free_double(to_do);
+	free_double(cub->map);
 }
 
 int	main(int ac, char **av)

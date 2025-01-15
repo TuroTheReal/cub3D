@@ -6,22 +6,40 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 17:48:26 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/14 17:43:16 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:03:01 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
 
-int	is_openable(char *str)
+int	is_openable(char *str, int option)
 {
-	int	fd;
+	int		fd;
+	char	*buff;
+	ssize_t	bytes_read;
 
+	bytes_read = 0;
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
 		return (1);
-	else
-		return (close(fd), 0);
+	if (option == 1)
+	{
+		buff = malloc(BUFFER_SIZE + 1);
+		if (!buff)
+			return (printf("Memory allocation failed!\n"), close(fd), 1);
+		bytes_read = read(fd, buff, BUFFER_SIZE);
+		if (bytes_read == -1)
+			return (printf("Cannot read xpm, please check your file!\n"), \
+			close(fd), free(buff), 1);
+		buff[bytes_read] = '\0';
+		if (ft_strncmp(buff, "/* XPM */", 9))
+			return (printf("Invalid xpm, please check your file!\n"), \
+			close(fd), free(buff), 1);
+		free(buff);
+	}
+	return (close(fd), 0);
 }
+
 void	print_double(char **tab)
 {
 	int	i;
@@ -34,11 +52,23 @@ void	print_double(char **tab)
 	}
 }
 
+void	free_double_index(char **s, int index)
+{
+	while (index >= 0)
+	{
+		free(s[index]);
+		index--;
+	}
+	free(s);
+}
+
 void	free_double(char **tab)
 {
 	int	i;
 
 	i = 0;
+	if (!tab)
+		return ;
 	while (tab[i])
 	{
 		free(tab[i]);

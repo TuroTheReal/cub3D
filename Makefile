@@ -6,7 +6,7 @@
 #    By: artberna <artberna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/23 14:37:18 by dsindres          #+#    #+#              #
-#    Updated: 2025/01/14 16:30:10 by artberna         ###   ########.fr        #
+#    Updated: 2025/01/15 13:05:00 by artberna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FLAGS = -Wall -Wextra -Werror -g3 -I.
 
 EXE_FLAGS = -lX11 -lXext
 
-SRC = main.c init_graphics.c check_all.c utils.c
+SRC = main.c check_all.c init_graphics.c init_map.c init_player.c is_playable.c utils.c
 
 #game.c algo_raycast.c algo_raycast_2.c algo_raycast_utils.c \
 algo_raycast_utils_2.c algo_raycast_utils_3.c close_game.c movement.c \

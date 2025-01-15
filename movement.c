@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsindres <dsindres@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:01:41 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/06 11:26:43 by dsindres         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:37:34 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	movement_key_2(int key, t_cub *cub)
 void	move_up(t_cub *cub)
 {
 	t_player	*temp;
+
 	temp = &cub->player;
 	temp->pos.y += VITESSE * cub->player.dir.y * 1;
 	temp->pos.x += VITESSE * cub->player.dir.x * 1;
@@ -67,6 +68,7 @@ void	move_up(t_cub *cub)
 void	move_down(t_cub *cub)
 {
 	t_player	*temp;
+
 	temp = &cub->player;
 	temp->pos.y += VITESSE * cub->player.dir.y * -1;
 	temp->pos.x += VITESSE * cub->player.dir.x * -1;

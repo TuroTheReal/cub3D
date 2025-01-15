@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:31:13 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/14 17:37:28 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:02:23 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ typedef struct s_player
 
 typedef struct s_cub
 {
-	void		*mlx_connection;
+	void		*mlx_co;
 	void		*window;
 	char		**map;
 	int			pixel;
@@ -139,15 +139,22 @@ int				check_order(char **t);
 
 // init_graphics.c
 int				init_graphics(t_cub *cub, char **tab);
-void			init_map(t_cub *cub, char **tab);
-void			init_player(t_cub *cub, char **tab);
 
 // utils.c
 void			print_double(char **tab);
 void			free_double(char **tab);
+void			free_double_index(char **s, int index);
 char			*ft_strdup_mo(const char *s);
-int				is_openable(char *str);
+int				is_openable(char *str, int option);
 
+//init_map.c
+int				init_map(t_cub *cub, char **tab);
+
+//init_player.c
+void			init_player(t_cub *cub, int i, int j);
+
+//is_playable.c
+int				is_playable(t_cub *cub, char **tab);
 
 
 /******************************************************************************
