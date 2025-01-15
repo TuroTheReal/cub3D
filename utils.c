@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 17:48:26 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/15 14:03:01 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:59:17 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void	print_double(char **tab)
 
 void	free_double_index(char **s, int index)
 {
+	if (!s)
+		return ;
 	while (index >= 0)
 	{
 		free(s[index]);

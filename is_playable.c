@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:04:16 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/15 15:12:24 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:25:26 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,22 +55,22 @@ static char	**create_tab(t_cub *cub)
 	return (to_ret);
 }
 
-// static int	flood_fill(t_cub *cub, char **tab, int i, int j)
-// {
-// 	if (j < 0 || i < 0 || i >= cub->map_height || j >= cub->map_width)
-// 		return (1);
-// 	if (tab[i][j] == '1' || tab[i][j] == '.')
-// 		return (0);
-// 	if (tab[i][j] == ' ')
-// 		return (1);
-// 	tab[i][j] = '.';
-// 	if (flood_fill(cub, tab, i + 1, j)
-// 		|| flood_fill(cub, tab, i - 1, j)
-// 		|| flood_fill(cub, tab, i, j + 1)
-// 		|| flood_fill(cub, tab, i, j - 1))
-// 		return (1);
-// 	return (0);
-// }
+static int	flood_fill(t_cub *cub, char **tab, int i, int j)
+{
+	if (j < 0 || i < 0 || i >= cub->map_height || j >= cub->map_width)
+		return (printf("-----1---"), 1); //debug
+	if (tab[i][j] == '1' || tab[i][j] == '.')
+		return (0);
+	if (tab[i][j] == ' ')
+		return (printf("-----2---"), 1); //debug
+	tab[i][j] = '.';
+	if (!flood_fill(cub, tab, i + 1, j)
+		&& !flood_fill(cub, tab, i - 1, j)
+		&& !flood_fill(cub, tab, i, j + 1)
+		&& !flood_fill(cub, tab, i, j - 1))
+		return (0);
+	return (printf("---3-----"),1); //debug
+}
 
 static char	**copy_tab(t_cub *cub, char **tab)
 {
@@ -108,13 +108,15 @@ int	is_playable(t_cub *cub, char **tab)
 	to_test = NULL;
 	to_ret = NULL;
 	to_test = copy_tab(cub, tab);
+	// to_test = create_tab(cub);  //debug
 	if (!to_test)
 		return (printf("Memory allocation failed!\n"), 1);
-	// if (flood_fill(cub, to_test, \
-	// 	(int)cub->player.pos.y, (int)cub->player.pos.x))
-	// 	return (free_double(to_test), 1);
-	printf("INFO : DOUBLE TAB COPY\n");
-	print_double(to_test);
+	// fill_tab(tab, to_test);  //debug
+	printf("INFO : DOUBLE TAB COPY\n");  //debug
+	print_double(to_test);  //debug
+	if (flood_fill(cub, to_test, \
+		(int)cub->player.pos.y, (int)cub->player.pos.x))
+		return (printf("Map not closed!\n"), free_double(to_test), 1);
 	free_double(to_test);
 	to_ret = create_tab(cub);
 	if (!to_ret)

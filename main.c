@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:33:29 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/15 14:47:46 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:29:17 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ void	init_all(t_cub *cub, char *str)
 		return (free_double(to_do));
 	if (is_playable(cub, to_do))
 		return (free_double(to_do));
-	// printf("INFO : .cub = \n"); //debug
-	// print_double(to_do);  //debug
 	printf("INFO : Path NO = %s\n", cub->nord.path); //debug
 	printf("INFO : Path SO = %s\n", cub->sud.path); //debug
 	printf("INFO : Path EA = %s\n", cub->est.path); //debug
@@ -83,7 +81,6 @@ void	init_all(t_cub *cub, char *str)
 	printf("INFO : CUB MAP = \n");
 	print_double(cub->map);
 	free_double(to_do);
-	free_double(cub->map);
 }
 
 int	main(int ac, char **av)
@@ -93,11 +90,12 @@ int	main(int ac, char **av)
 	if (check_input(ac, av) == 0)
 	{
 		init_all(&cub, av[1]);
-		// game_controler(&cub); // parti de l'autre naze
+		game_controler(&cub); // parti de l'autre naze
 		free(cub.nord.path);
 		free(cub.sud.path);
 		free(cub.est.path);
 		free(cub.ouest.path);
+		free_double(cub.map);
 		return (0);
 	}
 	return (1);

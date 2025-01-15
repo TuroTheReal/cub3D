@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:31:46 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/15 11:35:11 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:16:04 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	init_player_ns(t_cub *cub)
 void	init_player(t_cub *cub, int i, int j)
 {
 	cub->player.pos.x = j;
-	cub->player.pos.y = i;
+	cub->player.pos.y = i - 6;
 	if (cub->orientation == 'N' || cub->orientation == 'S')
 		init_player_ns(cub);
 	else if (cub->orientation == 'E' || cub->orientation == 'W')
