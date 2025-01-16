@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:24:47 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/16 10:47:23 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:49:02 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,15 @@ void	render_minimap(t_cub *cub)
 		while (map_x < cub->map_width)
 		{
 			if (cub->map[map_y][map_x] == '1')
-				color = 0xFFFFFF;
-			else if (cub->map[map_y][map_x] == '0')
 				color = 0x000000;
+			else if (cub->map[map_y][map_x] == '0')
+				color = 0xFFFFFF;
 			draw_square(cub, map_x, map_y, color);
 			map_x++;
 		}
 		map_y++;
 	}
-	draw_square(cub, cub->player.pos.x, cub->player.pos.y, color);
+	draw_square(cub, cub->player.pos.x, cub->player.pos.y, 0xFF00FF);
 }
 
 void	draw_square(t_cub *cub, int x, int y, int color)

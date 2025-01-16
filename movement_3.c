@@ -6,19 +6,20 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 09:47:39 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/16 10:48:18 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:39:31 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	mouse_movement(int x, t_cub *cub)
+int	mouse_movement(int x, int y, t_cub *cub)
 {
 	static int	last_x;
 	int			delta_x;
 	double		rotation_angle;
 	double		old_dir_x;
 
+	(void)y;
 	if (cub->player.mouse == 0)
 	{
 		last_x = x;

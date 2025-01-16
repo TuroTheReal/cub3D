@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:31:13 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/16 11:00:32 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/16 12:16:46 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define screenWidth 1280
 # define screenHeight 720
 # define sizetext 64
-# define VITESSE 0.1
+# define VITESSE 0.05
 # define PI 3.14159265358
 # define SENSITIVITY 0.03
 # define mouse_sensitivity 0.007
@@ -219,7 +219,7 @@ void			turn_left(t_cub *cub);
 void			turn_right(t_cub *cub);
 
 // movement_3.c
-int				mouse_movement(int x, t_cub *cub);
+int				mouse_movement(int x, int y, t_cub *cub);
 int				mouse_movement_2(t_cub *cub, double rotation_angle, double old_dir_x);
 
 // Close_game.c

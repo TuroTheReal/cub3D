@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 09:53:34 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/16 10:48:44 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:55:28 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,9 @@ void	render_floor_and_ceiling(t_cub *cub, int value)
 		while (x < screenWidth)
 		{
 			if (value == 0)
-				my_mlx_pixel_put(cub, x, y, convert_color(cub, 1));
-			else
 				my_mlx_pixel_put(cub, x, y, convert_color(cub, 0));
+			else
+				my_mlx_pixel_put(cub, x, y, convert_color(cub, 1));
 			x++;
 		}
 		y++;

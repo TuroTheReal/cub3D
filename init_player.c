@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:31:46 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/15 16:16:04 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:27:37 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	init_player_ew(t_cub *cub)
 		cub->player.cam.x = 0;
 		cub->player.cam.y = 0.66;
 	}
-	else if (cub->orientation == 'O')
+	else if (cub->orientation == 'W')
 	{
 		cub->player.dir.x = -1;
 		cub->player.dir.y = 0;
