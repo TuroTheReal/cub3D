@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 09:53:34 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/15 13:32:57 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/16 10:48:44 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	game_controler(t_cub *cub)
 	init_textures(cub, sizetext);
 	display_window(cub);
 	mlx_loop_hook(cub->mlx_co, render_image, cub);
-	mlx_hook(cub->window, MotionNotify, PointerMotionMask, mouse_movement, cub);
+	mlx_hook(cub->window, MotionNotify, PointerMotionMask, \
+	mouse_movement, cub);
 	mlx_hook(cub->window, 2, 1L << 0, movement_key, cub);
 	mlx_hook(cub->window, 3, 1L << 1, movement_key_2, cub);
 	mlx_hook(cub->window, 17, 0, close_window, cub);

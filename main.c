@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:33:29 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/15 16:29:17 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/16 10:36:24 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,22 @@ void	init_all(t_cub *cub, char *str)
 {
 	char	**to_do;
 
-	// cub->nord.ptr = NULL;
-	// cub->sud.ptr = NULL;
-	// cub->est.ptr = NULL;
-	// cub->ouest.ptr = NULL;
-	// cub->frame.ptr = NULL;
-	// cub->minimap.ptr = NULL;
-	// cub->window = NULL;
-	// cub->pixel = 0;
-	// cub->player.mouse = 0;
-	// cub->escape = 0;
-	// cub->w = 0;
-	// cub->a = 0;
-	// cub->s = 0;
-	// cub->d = 0;
-	// cub->left = 0;
-	// cub->right = 0;
+	cub->nord.ptr = NULL;
+	cub->sud.ptr = NULL;
+	cub->est.ptr = NULL;
+	cub->ouest.ptr = NULL;
+	cub->frame.ptr = NULL;
+	cub->minimap.ptr = NULL;
+	cub->window = NULL;
+	cub->pixel = 0;
+	cub->player.mouse = 0;
+	cub->escape = 0;
+	cub->w = 0;
+	cub->a = 0;
+	cub->s = 0;
+	cub->d = 0;
+	cub->left = 0;
+	cub->right = 0;
 	ft_bzero(cub, sizeof(t_cub));
 	to_do = extract_files(str);
 	if (check_all(to_do))
@@ -71,6 +71,7 @@ void	init_all(t_cub *cub, char *str)
 		return (free_double(to_do));
 	if (is_playable(cub, to_do))
 		return (free_double(to_do));
+	free_double(to_do);
 	printf("INFO : Path NO = %s\n", cub->nord.path); //debug
 	printf("INFO : Path SO = %s\n", cub->sud.path); //debug
 	printf("INFO : Path EA = %s\n", cub->est.path); //debug
@@ -80,7 +81,6 @@ void	init_all(t_cub *cub, char *str)
 	printf("INFO : player orientation is %c\n", cub->orientation); // debug
 	printf("INFO : CUB MAP = \n");
 	print_double(cub->map);
-	free_double(to_do);
 }
 
 int	main(int ac, char **av)
@@ -90,7 +90,7 @@ int	main(int ac, char **av)
 	if (check_input(ac, av) == 0)
 	{
 		init_all(&cub, av[1]);
-		game_controler(&cub); // parti de l'autre naze
+		game_controler(&cub);
 		free(cub.nord.path);
 		free(cub.sud.path);
 		free(cub.est.path);

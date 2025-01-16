@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 13:31:41 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/13 10:15:10 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/16 10:33:11 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	render_image(t_cub *cub)
 {
 	init_frame(cub);
 	move_player(cub);
-	//door
 	render_floor_and_ceiling(cub, 1);
 	render_floor_and_ceiling(cub, 0);
 	algo_raycast(cub);
