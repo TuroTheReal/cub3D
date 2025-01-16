@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:04:16 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/16 16:51:22 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/16 17:20:05 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static void	fill_tab(char **src, char **dest)
 				dest[i][j] = '1';
 			else
 				dest[i][j] = src[i + 6][j];
-
 			j++;
 		}
 		i++;

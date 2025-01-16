@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:33:29 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/16 16:49:34 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/16 17:18:11 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,6 @@ static int	init_all(t_cub *cub, char *str)
 	if (is_playable(cub, to_do))
 		return (free_double(to_do), 1);
 	free_double(to_do);
-	printf("INFO : Path NO = %s\n", cub->nord.path); //debug
-	printf("INFO : Path SO = %s\n", cub->sud.path); //debug
-	printf("INFO : Path EA = %s\n", cub->est.path); //debug
-	printf("INFO : Path WE = %s\n", cub->ouest.path); //debug
-	printf("INFO : C color = %d, %d ,%d\n", cub->ceiling.r, cub->ceiling.g, cub->ceiling.b); //debug
-	printf("INFO : F color = %d, %d ,%d\n", cub->floor.r, cub->floor.g, cub->floor.b); //debug
-	printf("INFO : player orientation is %c\n", cub->orientation); // debug
-	printf("INFO : CUB MAP = \n");
-	print_double(cub->map);
 	return (0);
 }
 

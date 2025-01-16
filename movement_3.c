@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 09:47:39 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/16 11:39:31 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/16 17:24:20 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	mouse_movement(int x, int y, t_cub *cub)
 	}
 	delta_x = x - last_x;
 	last_x = x;
-	rotation_angle = -delta_x * mouse_sensitivity;
+	rotation_angle = -delta_x * MOUSESENSE;
 	old_dir_x = cub->player.dir.x;
 	mouse_movement_2(cub, rotation_angle, old_dir_x);
 	return (0);

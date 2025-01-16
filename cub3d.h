@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:31:13 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/16 12:16:46 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/16 18:16:06 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@
 # include "minilibx-linux/mlx.h"
 # include "my_library/my_library.h"
 
-# define screenWidth 1280
-# define screenHeight 720
-# define sizetext 64
+# define SCREENW 1280
+# define SCREENH 720
+# define SIZTEXT 64
 # define VITESSE 0.05
 # define PI 3.14159265358
 # define SENSITIVITY 0.03
-# define mouse_sensitivity 0.007
+# define MOUSESENSE 0.007
 # define IS_MAP "NSEW01 "
 
 typedef struct s_vector
@@ -136,7 +136,6 @@ int				check_all(char **tab);
 int				check_input(int ac, char **av);
 int				check_order(char **t);
 
-
 // init_graphics.c
 int				init_graphics(t_cub *cub, char **tab);
 
@@ -151,11 +150,10 @@ int				is_openable(char *str, int option);
 int				init_map(t_cub *cub, char **tab);
 
 //init_player.c
-void			init_player(t_cub *cub, int i, int j);
+void			init_player(t_cub *cub, int i, int j, char **tab);
 
 //is_playable.c
 int				is_playable(t_cub *cub, char **tab);
-
 
 /******************************************************************************
 #                                    DIEGO                                    *
@@ -220,7 +218,8 @@ void			turn_right(t_cub *cub);
 
 // movement_3.c
 int				mouse_movement(int x, int y, t_cub *cub);
-int				mouse_movement_2(t_cub *cub, double rotation_angle, double old_dir_x);
+int				mouse_movement_2(t_cub *cub, double \
+rotation_angle, double old_dir_x);
 
 // Close_game.c
 int				close_window(t_cub *cub);

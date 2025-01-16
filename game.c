@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 09:53:34 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/16 11:55:28 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/16 17:23:57 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	game_controler(t_cub *cub)
 		printf("Mlx connection failed\n");
 		exit(EXIT_FAILURE);
 	}
-	init_textures(cub, sizetext);
+	init_textures(cub, SIZTEXT);
 	display_window(cub);
 	mlx_loop_hook(cub->mlx_co, render_image, cub);
 	mlx_hook(cub->window, MotionNotify, PointerMotionMask, \
@@ -35,8 +35,8 @@ int	game_controler(t_cub *cub)
 
 int	display_window(t_cub *cub)
 {
-	cub->window = mlx_new_window(cub->mlx_co, screenWidth,
-			screenHeight, "My Cub3D !");
+	cub->window = mlx_new_window(cub->mlx_co, SCREENW,
+			SCREENH, "My Cub3D !");
 	if (cub->window == NULL)
 	{
 		free_map(cub);
@@ -50,7 +50,7 @@ void	init_textures(t_cub *cub, int s)
 {
 	int	sq_siz;
 
-	sq_siz = sizetext * 0.1;
+	sq_siz = SIZTEXT * 0.1;
 	cub->nord.ptr = mlx_xpm_file_to_image(cub->mlx_co, cub->nord.path, &s, &s);
 	cub->sud.ptr = mlx_xpm_file_to_image(cub->mlx_co, cub->sud.path, &s, &s);
 	cub->est.ptr = mlx_xpm_file_to_image(cub->mlx_co, cub->est.path, &s, &s);
@@ -80,7 +80,7 @@ void	init_frame(t_cub *cub)
 	if (cub->frame.ptr)
 		mlx_destroy_image(cub->mlx_co, cub->frame.ptr);
 	cub->frame.ptr = mlx_new_image(cub->mlx_co, \
-	screenWidth, screenHeight);
+	SCREENW, SCREENH);
 	cub->frame.addr = mlx_get_data_addr(cub->frame.ptr, \
 	&cub->frame.bitpp, &cub->frame.len, &cub->frame.endian);
 }
@@ -93,11 +93,11 @@ void	render_floor_and_ceiling(t_cub *cub, int value)
 	x = 0;
 	y = 0;
 	if (value == 0)
-		y = screenHeight / 2;
-	while (y < screenHeight)
+		y = SCREENH / 2;
+	while (y < SCREENH)
 	{
 		x = 0;
-		while (x < screenWidth)
+		while (x < SCREENW)
 		{
 			if (value == 0)
 				my_mlx_pixel_put(cub, x, y, convert_color(cub, 0));
