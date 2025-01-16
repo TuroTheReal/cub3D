@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:04:16 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/15 16:25:26 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:25:15 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,14 @@ static void	fill_tab(char **src, char **dest)
 		j = 0;
 		while (src[i + 6][j])
 		{
-			dest[i][j] = src[i + 6][j];
+			if (src[i + 6][j] == 'N' || src[i + 6][j] == 'S'
+				|| src[i + 6][j] == 'E' || src[i + 6][j] == 'W')
+				dest[i][j] = '0';
+			// else if (src[i + 6][j] == ' ')
+			// 	dest[i][j] = '1';
+			else
+				dest[i][j] = src[i + 6][j];
+
 			j++;
 		}
 		i++;

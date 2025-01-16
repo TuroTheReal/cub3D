@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:31:13 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/15 14:02:23 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:00:32 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,7 @@ int				convert_color(t_cub *cub, int flag);
 // game_3.c
 unsigned int	rgb_to_hex(int r, int g, int b);
 void			render_minimap(t_cub *cub);
-void			draw_square(t_cub *cub, int x, int y, int size, int color);
+void			draw_square(t_cub *cub, int x, int y, int color);
 
 // Algo_raycast
 void			algo_raycast(t_cub *cub);
@@ -219,7 +219,8 @@ void			turn_left(t_cub *cub);
 void			turn_right(t_cub *cub);
 
 // movement_3.c
-int				mouse_movement(int x, int y, t_cub *cub);
+int				mouse_movement(int x, t_cub *cub);
+int				mouse_movement_2(t_cub *cub, double rotation_angle, double old_dir_x);
 
 // Close_game.c
 int				close_window(t_cub *cub);
