@@ -6,7 +6,7 @@
 #    By: artberna <artberna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/23 14:37:18 by dsindres          #+#    #+#              #
-#    Updated: 2025/01/15 16:27:46 by artberna         ###   ########.fr        #
+#    Updated: 2025/01/20 11:41:52 by artberna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ EXE_FLAGS = -lX11 -lXext
 SRC = main.c check_all.c init_graphics.c init_map.c init_player.c is_playable.c utils.c \
 game.c algo_raycast.c algo_raycast_2.c algo_raycast_utils.c \
 algo_raycast_utils_2.c algo_raycast_utils_3.c close_game.c movement.c \
-movement_2.c movement_3.c game_2.c  game_3.c
+movement_2.c movement_3.c game_2.c  game_3.c movement_verif.c \
+movement_verif_2.c
 
 OBJ_DIR = obj
 MINILIBX = minilibx-linux

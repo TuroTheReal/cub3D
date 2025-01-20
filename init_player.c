@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:31:46 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/16 18:20:34 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/20 11:33:15 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,23 +63,22 @@ static void	init_start_position(t_cub *cub, int i, int j, char **tab)
 		printf(" pos y = i * 1.1/n");
 	}
 	if (i + 1 < cub->map_height && cub->orientation == 'S'
-		&& tab[i + 1] && tab[i + 1][j] == '1')
+		&& tab[i + 1][j] == '1')
 	{
 		cub->player.pos.y = (i) * 0.9;
 		printf(" pos y = i * 0.9/n");
 	}
-	if (j - 1 >= 0 && tab[i][j - 1] == '1' && cub->orientation == 'E')
+	if (j - 1 >= 0 && tab[i][j - 1] == '1' && cub->orientation == 'W')
 	{
 		cub->player.pos.x = (j) * 1.1;
 		printf(" pos x = j * 1.1/n");
 	}
-	if (j + 1 < cub->map_height && cub->orientation == 'W'
-		&& tab[i][j + 1] && tab[i][j + 1] == '1')
+	if (j + 1 < cub->map_width && cub->orientation == 'E'
+		&& tab[i][j + 1] == '1')
 	{
 		cub->player.pos.x = (j) * 0.9;
 		printf(" pos x = j * 0.9/n");
 	}
-	printf("orientation done\n");
 }
 
 void	init_player(t_cub *cub, int i, int j, char **tab)

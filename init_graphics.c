@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:04:58 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/16 17:06:46 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/20 13:12:05 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,26 @@ static int	check_graphics(t_cub *cub)
 	return (0);
 }
 
-static int	get_color(char *str, t_color *color)
+static int	get_color(char *str, t_color *color, int i)
 {
-	int	i;
-
-	i = 1;
 	while (str[i] == ' ')
 		i++;
+	if (!str[i] || str[i] == ',')
+		return (printf("RGB Color empty!\n"), 1);
 	color->r = ft_atoi(&str[i]);
 	while (str[i] != ',' && str[i])
 		i++;
 	if (str[i] == ',')
 		i++;
+	if (!str[i] || str[i] == ',')
+		return (printf("RGB Color empty!\n"), 1);
 	color->g = ft_atoi(&str[i]);
 	while (str[i] != ',' && str[i])
 		i++;
 	if (str[i] == ',')
 		i++;
+	if (!str[i] || str[i] == ',')
+		return (printf("RGB Color empty!\n"), 1);
 	color->b = ft_atoi(&str[i]);
 	if (color->r > 255 || color->g > 255 || color->b > 255
 		|| color->r < 0 || color->b < 0 || color->b < 0)
@@ -68,12 +71,12 @@ static int	init_color(char *str, t_cub *cub)
 {
 	if (!ft_strncmp(str, "F", 1))
 	{
-		if (get_color(str, &cub->floor))
+		if (get_color(str, &cub->floor, 1))
 			return (1);
 	}
 	if (!ft_strncmp(str, "C", 1))
 	{
-		if (get_color(str, &cub->ceiling))
+		if (get_color(str, &cub->ceiling, 1))
 			return (1);
 	}
 	return (0);

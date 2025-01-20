@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:31:13 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/16 18:16:06 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/20 11:42:07 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@
 # define SENSITIVITY 0.03
 # define MOUSESENSE 0.007
 # define IS_MAP "NSEW01 "
+# define NORD 1
+# define SUD 2
+# define EST 3
+# define OUEST 4
 
 typedef struct s_vector
 {
@@ -209,6 +213,7 @@ int				movement_key(int key, t_cub *cub);
 int				movement_key_2(int key, t_cub *cub);
 void			move_up(t_cub *cub);
 void			move_down(t_cub *cub);
+int				passage(t_cub *cub, double a, double b, int dir);
 
 // movement_2.c
 void			move_left(t_cub *cub);
@@ -220,6 +225,17 @@ void			turn_right(t_cub *cub);
 int				mouse_movement(int x, int y, t_cub *cub);
 int				mouse_movement_2(t_cub *cub, double \
 rotation_angle, double old_dir_x);
+// movement_verif.c
+int				verif_passage_nord(t_cub *cub, int y, int x);
+int				verif_passage_sud(t_cub *cub, int y, int x);
+int				verif_passage_est(t_cub *cub, int y, int x);
+int				verif_passage_ouest(t_cub *cub, int y, int x);
+
+// movement_verif_2.c
+int				verif_passage_2_1(t_cub *cub, int y, int x);
+int				verif_passage_2_2(t_cub *cub, int y, int x);
+int				verif_passage_2_3(t_cub *cub, int y, int x);
+int				verif_passage_2_4(t_cub *cub, int y, int x);
 
 // Close_game.c
 int				close_window(t_cub *cub);
