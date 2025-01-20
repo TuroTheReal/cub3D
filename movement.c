@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:01:41 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/20 11:45:14 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:17:46 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,13 +105,8 @@ int	passage(t_cub *cub, double a, double b, int dir)
 
 	y = (int)a;
 	x = (int)b;
-	if (dir == NORD)
+	if (dir == 1)
 		return (verif_passage_nord(cub, y, x));
-	else if (dir == SUD)
-		return (verif_passage_sud(cub, y, x));
-/* 	else if (dir == EST)
-		return (verif_passage_est(cub, y, x));
 	else
-		return (verif_passage_ouest(cub, y, x)); */
-	return (0);
+		return (verif_passage_sud(cub, y, x));
 }

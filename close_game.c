@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:26:15 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/15 13:28:45 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:55:21 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	close_window(t_cub *cub)
 
 void	free_all(t_cub *cub, int success)
 {
-	free_map(cub);
 	if (cub->nord.ptr != NULL)
 		mlx_destroy_image(cub->mlx_co, cub->nord.ptr);
 	if (cub->sud.ptr != NULL)
@@ -37,21 +36,13 @@ void	free_all(t_cub *cub, int success)
 	mlx_destroy_window(cub->mlx_co, cub->window);
 	mlx_destroy_display(cub->mlx_co);
 	free(cub->mlx_co);
+	free_double(cub->map);
+	free(cub->nord.path);
+	free(cub->sud.path);
+	free(cub->est.path);
+	free(cub->ouest.path);
 	if (success)
 		exit(EXIT_SUCCESS);
 	else
 		exit(EXIT_FAILURE);
-}
-
-void	free_map(t_cub *cub)
-{
-	int	i;
-
-	i = 0;
-	while (i < cub->map_height)
-	{
-		free(cub->map[i]);
-		i++;
-	}
-	free(cub->map);
 }

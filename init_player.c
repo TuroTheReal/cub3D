@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:31:46 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/20 11:33:15 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:39:20 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 static void	init_player_ew(t_cub *cub)
 
 {
-	if (cub->orientation == 'E')
+	if (cub->orient == 'E')
 	{
 		cub->player.dir.x = 1;
 		cub->player.dir.y = 0;
 		cub->player.cam.x = 0;
 		cub->player.cam.y = 0.66;
 	}
-	else if (cub->orientation == 'W')
+	else if (cub->orient == 'W')
 	{
 		cub->player.dir.x = -1;
 		cub->player.dir.y = 0;
@@ -33,14 +33,14 @@ static void	init_player_ew(t_cub *cub)
 
 static void	init_player_ns(t_cub *cub)
 {
-	if (cub->orientation == 'N')
+	if (cub->orient == 'N')
 	{
 		cub->player.dir.x = 0;
 		cub->player.dir.y = -1;
 		cub->player.cam.x = 0.66;
 		cub->player.cam.y = 0;
 	}
-	else if (cub->orientation == 'S')
+	else if (cub->orient == 'S')
 	{
 		cub->player.dir.x = 0;
 		cub->player.dir.y = 1;
@@ -49,43 +49,12 @@ static void	init_player_ns(t_cub *cub)
 	}
 }
 
-static void	init_start_position(t_cub *cub, int i, int j, char **tab)
+void	init_player(t_cub *cub, int i, int j)
 {
-	// si vers le N celle du dessus == 1, alors cub->player.pos.y = i * 1.05 Y
-	// si vers le S * 0.95 Y i
-	// si vers le E * 0.95 X j
-	// si vers le W * 1.05 X j
 	cub->player.pos.x = j;
-	cub->player.pos.y = i; // -6
-	if (i - 1 >= 0 && tab[i - 1][j] == '1' && cub->orientation == 'N')
-	{
-		cub->player.pos.y = (i) * 1.1;
-		printf(" pos y = i * 1.1/n");
-	}
-	if (i + 1 < cub->map_height && cub->orientation == 'S'
-		&& tab[i + 1][j] == '1')
-	{
-		cub->player.pos.y = (i) * 0.9;
-		printf(" pos y = i * 0.9/n");
-	}
-	if (j - 1 >= 0 && tab[i][j - 1] == '1' && cub->orientation == 'W')
-	{
-		cub->player.pos.x = (j) * 1.1;
-		printf(" pos x = j * 1.1/n");
-	}
-	if (j + 1 < cub->map_width && cub->orientation == 'E'
-		&& tab[i][j + 1] == '1')
-	{
-		cub->player.pos.x = (j) * 0.9;
-		printf(" pos x = j * 0.9/n");
-	}
-}
-
-void	init_player(t_cub *cub, int i, int j, char **tab)
-{
-	init_start_position(cub, i, j, tab);
-	if (cub->orientation == 'N' || cub->orientation == 'S')
+	cub->player.pos.y = i;
+	if (cub->orient == 'N' || cub->orient == 'S')
 		init_player_ns(cub);
-	else if (cub->orientation == 'E' || cub->orientation == 'W')
+	else if (cub->orient == 'E' || cub->orient == 'W')
 		init_player_ew(cub);
 }

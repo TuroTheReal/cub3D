@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 17:48:26 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/15 15:59:17 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:27:16 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,11 @@ int	is_openable(char *str, int option)
 	return (close(fd), 0);
 }
 
-void	print_double(char **tab)
+void	free_graphics(t_cub *cub)
 {
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		printf("%s\n", tab[i]);
-		i++;
-	}
+	if (cub->map)
+		free_double(cub->map);
+	free_path(cub);
 }
 
 void	free_double_index(char **s, int index)

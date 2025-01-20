@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:04:58 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/20 13:12:05 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:25:51 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,28 +42,29 @@ static int	check_graphics(t_cub *cub)
 
 static int	get_color(char *str, t_color *color, int i)
 {
-	while (str[i] == ' ')
+	while (str[i] == ' ' || str[i] == '\t')
 		i++;
-	if (!str[i] || str[i] == ',')
+	if (!str[i] || str[i] == ',' || ft_isalpha(str[i]))
 		return (printf("RGB Color empty!\n"), 1);
 	color->r = ft_atoi(&str[i]);
-	while (str[i] != ',' && str[i])
+	while (str[i] != ',' && str[i] && !ft_isalpha(str[i]))
 		i++;
 	if (str[i] == ',')
 		i++;
-	if (!str[i] || str[i] == ',')
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
+	if (!str[i] || str[i] == ',' || ft_isalpha(str[i]))
 		return (printf("RGB Color empty!\n"), 1);
 	color->g = ft_atoi(&str[i]);
-	while (str[i] != ',' && str[i])
+	while (str[i] != ',' && str[i] && !ft_isalpha(str[i]))
 		i++;
 	if (str[i] == ',')
 		i++;
-	if (!str[i] || str[i] == ',')
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
+	if (!str[i] || str[i] == ',' || ft_isalpha(str[i]))
 		return (printf("RGB Color empty!\n"), 1);
 	color->b = ft_atoi(&str[i]);
-	if (color->r > 255 || color->g > 255 || color->b > 255
-		|| color->r < 0 || color->b < 0 || color->b < 0)
-		return (printf("RGB Color not in range!\n"), 1);
 	return (0);
 }
 
@@ -82,19 +83,14 @@ static int	init_color(char *str, t_cub *cub)
 	return (0);
 }
 
-static char	*get_path(char *str)
+static int	check_color(t_cub *cub)
 {
-	int		i;
-	int		j;
-	char	*to_ret;
-
-	to_ret = NULL;
-	i = 2;
-	j = 0;
-	while (str[i] == ' ')
-		i++;
-	to_ret = ft_strdup_mo(str + i);
-	return (to_ret);
+	if (cub->ceiling.r > 255 || cub->ceiling.g > 255 || cub->ceiling.b > 255
+		|| cub->ceiling.r < 0 || cub->ceiling.g < 0 || cub->ceiling.b < 0
+		|| cub->floor.r > 255 || cub->floor.g > 255 || cub->floor.b > 255
+		|| cub->floor.r < 0 || cub->floor.g < 0 || cub->floor.b < 0)
+		return (printf("RGB Color not in range!\n"), 1);
+	return (0);
 }
 
 int	init_graphics(t_cub *cub, char **tab)
@@ -120,6 +116,8 @@ int	init_graphics(t_cub *cub, char **tab)
 		i++;
 	}
 	if (check_graphics(cub))
+		return (1);
+	if (check_color(cub))
 		return (1);
 	return (0);
 }

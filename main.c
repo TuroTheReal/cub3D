@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:33:29 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/16 17:18:11 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:26:43 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,13 @@ static int	init_all(t_cub *cub, char *str)
 	if (check_all(to_do))
 		return (free_double(to_do), 1);
 	if (init_graphics(cub, to_do))
-		return (free_double(to_do), 1);
+		return (free_double(to_do), free_graphics(cub), 1);
 	if (init_map(cub, to_do))
-		return (free_double(to_do), 1);
+		return (free_double(to_do), free_graphics(cub), 1);
 	if (is_playable(cub, to_do))
-		return (free_double(to_do), 1);
+		return (free_double(to_do), free_graphics(cub), 1);
+	cub->player.pos.x += 0.5;
+	cub->player.pos.y += 0.5;
 	free_double(to_do);
 	return (0);
 }
@@ -70,11 +72,7 @@ int	main(int ac, char **av)
 		if (init_all(&cub, av[1]))
 			return (1);
 		game_controler(&cub);
-		free(cub.nord.path);
-		free(cub.sud.path);
-		free(cub.est.path);
-		free(cub.ouest.path);
-		free_double(cub.map);
+		free_graphics(&cub);
 		return (0);
 	}
 	return (1);

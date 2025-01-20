@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 09:53:34 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/16 17:23:57 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:56:15 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	game_controler(t_cub *cub)
 	cub->mlx_co = mlx_init();
 	if (cub->mlx_co == NULL)
 	{
-		free_map(cub);
+		free_double(cub->map);
 		printf("Mlx connection failed\n");
 		exit(EXIT_FAILURE);
 	}
@@ -39,7 +39,7 @@ int	display_window(t_cub *cub)
 			SCREENH, "My Cub3D !");
 	if (cub->window == NULL)
 	{
-		free_map(cub);
+		free_double(cub->map);
 		printf("Mlx display window failed\n");
 		exit(EXIT_FAILURE);
 	}

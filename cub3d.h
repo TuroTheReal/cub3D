@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:31:13 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/20 11:42:07 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:11:54 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,6 @@
 # define SENSITIVITY 0.03
 # define MOUSESENSE 0.007
 # define IS_MAP "NSEW01 "
-# define NORD 1
-# define SUD 2
-# define EST 3
-# define OUEST 4
 
 typedef struct s_vector
 {
@@ -128,7 +124,7 @@ typedef struct s_cub
 	int			s;
 	int			left;
 	int			right;
-	char		orientation;
+	char		orient;
 }				t_cub;
 
 /******************************************************************************
@@ -143,8 +139,12 @@ int				check_order(char **t);
 // init_graphics.c
 int				init_graphics(t_cub *cub, char **tab);
 
+// utils_2.c
+void			free_path(t_cub *cub);
+char			*get_path(char *str);
+
 // utils.c
-void			print_double(char **tab);
+void			free_graphics(t_cub *cub);
 void			free_double(char **tab);
 void			free_double_index(char **s, int index);
 char			*ft_strdup_mo(const char *s);
@@ -154,7 +154,7 @@ int				is_openable(char *str, int option);
 int				init_map(t_cub *cub, char **tab);
 
 //init_player.c
-void			init_player(t_cub *cub, int i, int j, char **tab);
+void			init_player(t_cub *cub, int i, int j);
 
 //is_playable.c
 int				is_playable(t_cub *cub, char **tab);
@@ -240,6 +240,5 @@ int				verif_passage_2_4(t_cub *cub, int y, int x);
 // Close_game.c
 int				close_window(t_cub *cub);
 void			free_all(t_cub *cub, int success);
-void			free_map(t_cub *cub);
 
 #endif

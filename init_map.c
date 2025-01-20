@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:04:48 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/16 18:15:28 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:24:39 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ static int	set_position(t_cub *cub, char **tab)
 		while (tab[i][j])
 		{
 			if (tab[i][j] == 'N')
-				return (cub->orientation = 'N', init_player(cub, i - 6, j, tab), 0);
+				return (cub->orient = 'N', init_player(cub, i - 6, j), 0);
 			if (tab[i][j] == 'S')
-				return (cub->orientation = 'S', init_player(cub, i - 6, j, tab), 0);
+				return (cub->orient = 'S', init_player(cub, i - 6, j), 0);
 			if (tab[i][j] == 'E')
-				return (cub->orientation = 'E', init_player(cub, i - 6, j, tab), 0);
+				return (cub->orient = 'E', init_player(cub, i - 6, j), 0);
 			if (tab[i][j] == 'W')
-				return (cub->orientation = 'W', init_player(cub, i - 6, j, tab), 0);
+				return (cub->orient = 'W', init_player(cub, i - 6, j), 0);
 			j++;
 		}
 		i++;
