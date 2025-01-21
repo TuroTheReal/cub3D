@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:18:28 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/20 17:17:44 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:17:43 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ char	*get_path(char *str)
 	j = 0;
 	while (str[i] == ' ' || str[i] == '\t')
 		i++;
+	if (!str[i])
+		return (NULL);
 	to_ret = ft_strdup_mo(str + i);
 	if (!to_ret)
 		return (NULL);

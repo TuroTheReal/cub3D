@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:31:46 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/20 15:39:20 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:37:46 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ static void	init_player_ew(t_cub *cub)
 {
 	if (cub->orient == 'E')
 	{
-		cub->player.dir.x = 1;
-		cub->player.dir.y = 0;
+		cub->player.dir.x = 1.008;
+		cub->player.dir.y = 0.008;
 		cub->player.cam.x = 0;
 		cub->player.cam.y = 0.66;
 	}
 	else if (cub->orient == 'W')
 	{
-		cub->player.dir.x = -1;
-		cub->player.dir.y = 0;
+		cub->player.dir.x = -0.992;
+		cub->player.dir.y = 0.008;
 		cub->player.cam.x = 0;
 		cub->player.cam.y = -0.66;
 	}
@@ -35,14 +35,14 @@ static void	init_player_ns(t_cub *cub)
 {
 	if (cub->orient == 'N')
 	{
-		cub->player.dir.x = 0;
-		cub->player.dir.y = -1;
+		cub->player.dir.x = 0.008;
+		cub->player.dir.y = -0.992;
 		cub->player.cam.x = 0.66;
 		cub->player.cam.y = 0;
 	}
 	else if (cub->orient == 'S')
 	{
-		cub->player.dir.x = 0;
+		cub->player.dir.x = 0.008;
 		cub->player.dir.y = 1;
 		cub->player.cam.x = -0.66;
 		cub->player.cam.y = 0;

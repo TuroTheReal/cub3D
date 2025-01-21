@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:26:15 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/20 15:55:21 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:00:05 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,7 @@ void	free_all(t_cub *cub, int success)
 	mlx_destroy_window(cub->mlx_co, cub->window);
 	mlx_destroy_display(cub->mlx_co);
 	free(cub->mlx_co);
-	free_double(cub->map);
-	free(cub->nord.path);
-	free(cub->sud.path);
-	free(cub->est.path);
-	free(cub->ouest.path);
+	free_graphics(cub);
 	if (success)
 		exit(EXIT_SUCCESS);
 	else

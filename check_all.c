@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:26:37 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/16 17:08:16 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:21:05 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int	check_input(int ac, char **av)
 		&& ft_strlen(av[1]) > 4)
 		return (printf("Second argument must finish with : \".cub\"!\n"), 1);
 	if (is_openable(av[1], 0))
-		return (printf("File cannot be opened!\n"), 1);
+		return (1);
 	else
 		return (0);
 }

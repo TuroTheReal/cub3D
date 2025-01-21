@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:31:13 by dsindres          #+#    #+#             */
-/*   Updated: 2025/01/20 17:11:54 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/21 11:05:31 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@
 # define VITESSE 0.05
 # define PI 3.14159265358
 # define SENSITIVITY 0.03
-# define MOUSESENSE 0.007
+# define MOUSESENSE 0.01
 # define IS_MAP "NSEW01 "
 
 typedef struct s_vector

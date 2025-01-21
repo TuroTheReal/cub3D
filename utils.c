@@ -6,7 +6,7 @@
 /*   By: artberna <artberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 17:48:26 by artberna          #+#    #+#             */
-/*   Updated: 2025/01/20 17:27:16 by artberna         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:20:50 by artberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	is_openable(char *str, int option)
 	bytes_read = 0;
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
-		return (1);
+		return (printf("File cannot be opened!\n"), 1);
 	if (option == 1)
 	{
 		buff = malloc(BUFFER_SIZE + 1);
