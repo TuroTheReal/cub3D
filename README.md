@@ -14,8 +14,8 @@
 
 ## About
 
-This repository contains my implementation of the **cub3D** project at 42 School.  
-Cub3D is a graphical project that introduces the fundamental concepts of **ray-casting** to create a dynamic 3D view inside a maze.  
+This repository contains my implementation of the **cub3D** project at 42 School.
+Cub3D is a graphical project that introduces the fundamental concepts of **ray-casting** to create a dynamic 3D view inside a maze.
 Inspired by the legendary **Wolfenstein 3D**, the first true FPS in videogame history, this project demonstrates how to create a pseudo-3D perspective from a 2D map using mathematical algorithms and the MinilibX graphics library.
 
 The project explores the world of computer graphics, teaching how early game engines created immersive 3D experiences with limited computational resources through clever mathematical tricks and optimizations.
@@ -63,7 +63,7 @@ make re
 - **Modular Architecture**: Clean separation between parsing, rendering, and game logic
 - **Error Handling**: Robust validation and graceful error recovery
 - **File I/O**: Reading and parsing map configuration files
-- 
+-
 ### Ray-Casting Algorithm
 - **Mathematical Foundations**: Understanding trigonometry, vectors, and coordinate systems
 - **DDA Algorithm**: Digital Differential Analyzer for efficient line traversal
@@ -165,7 +165,7 @@ Where:
 
 ### Norm Requirements
 - ✅ Maximum 25 lines per function
-- ✅ Maximum 5 functions per file  
+- ✅ Maximum 5 functions per file
 - ✅ Proper indentation and formatting
 - ✅ No forbidden functions usage
 - ✅ Compilation without warnings (-Wall -Wextra -Werror)
@@ -186,6 +186,14 @@ Where:
 - ✅ Mouse look rotation
 
 
+## 📝 Related Articles
+
+Blog posts documenting the learning process and context behind this project:
+
+- 📝 [42 Piscine and Common Core: What I Learned](https://arthur-portfolio.com/en/blog/42-piscine-and-core-curriculum) — Reflections on 42 School's selection process and 2-year curriculum
+
+
+---
 ## Contact
 
 - **GitHub**: [@TuroTheReal](https://github.com/TuroTheReal)
