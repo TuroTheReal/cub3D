@@ -10,6 +10,8 @@
 - [Map Configuration](#map-configuration)
 - [Controls](#controls)
 - [42 School Standards](#42-school-standards)
+- [Related Articles](#-related-articles)
+- [Contact](#contact)
 
 
 ## About
@@ -63,7 +65,7 @@ make re
 - **Modular Architecture**: Clean separation between parsing, rendering, and game logic
 - **Error Handling**: Robust validation and graceful error recovery
 - **File I/O**: Reading and parsing map configuration files
--
+
 ### Ray-Casting Algorithm
 - **Mathematical Foundations**: Understanding trigonometry, vectors, and coordinate systems
 - **DDA Algorithm**: Digital Differential Analyzer for efficient line traversal
@@ -120,10 +122,10 @@ The cub3D project recreates the core mechanics of early 3D games through ray-cas
 Map files (`.cub`) must follow this structure:
 
 ```
-NO ./textures/north_wall.xpm
-SO ./textures/south_wall.xpm
-WE ./textures/west_wall.xpm
-EA ./textures/east_wall.xpm
+NO ./img/nord.xpm
+SO ./img/sud.xpm
+WE ./img/ouest.xpm
+EA ./img/est.xpm
 
 F 220,100,0
 C 225,30,0
@@ -151,6 +153,8 @@ Where:
 - `NO/SO/WE/EA` = Texture paths for each wall direction
 - `F` = Floor color (RGB)
 - `C` = Ceiling color (RGB)
+
+Example maps are provided in the `maps/` directory.
 
 
 ## Controls
